@@ -21,11 +21,11 @@ public class PizzeriaAdminConsoleApp {
 		do{
 			int i = 0;
 			System.out.println("***** Pizzeria Administration *****");
-			System.out.println(" 1. Lister les pizzas");
-			System.out.println(" 2. Ajouter une nouvelle pizza");
-			System.out.println(" 3. Mettre à jour une pizza");
-			System.out.println(" 4. Supprimer une pizza");
-			System.out.println("99. Sortir");
+			System.out.println("  1. Lister les pizzas");
+			System.out.println("  2. Ajouter une nouvelle pizza");
+			System.out.println("  3. Mettre à jour une pizza");
+			System.out.println("  4. Supprimer une pizza");
+			System.out.println("100. Sortir");
 			sc = new Scanner(System.in);
 			choix = sc.nextInt();
 			switch(choix){
@@ -58,6 +58,16 @@ public class PizzeriaAdminConsoleApp {
 					break;
 				case 3 :
 					System.out.println("Mise à jour d’une pizza");
+					
+					while(i < listePizza.length){
+						if (listePizza[i] != null){
+							System.out.println( i + " " + listePizza[i][0] + " -> " + listePizza[i][1] + " " + listePizza[i][2]);
+						}
+						i++;
+					}
+					
+					System.out.println("Veuillez choisir le numéro de la pizza à modifier.\n (100 pour annuler)");
+					
 					break;
 				case 4 :
 					System.out.println("Suppression d’une pizza");
