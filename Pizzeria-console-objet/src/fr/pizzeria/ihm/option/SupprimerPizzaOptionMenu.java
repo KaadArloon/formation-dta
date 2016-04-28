@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.option;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu{
@@ -31,6 +32,9 @@ public class SupprimerPizzaOptionMenu extends OptionMenu{
 				System.out.println("Pizza supprimée avec succées !");
 			} catch (DeletePizzaException e) {
 				System.out.println("Erreur lors de la suppression !");
+				e.printStackTrace();
+			} catch (DaoException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {

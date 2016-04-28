@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.option;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.Pizza;
 
@@ -36,6 +37,8 @@ public class NouvellePizzaOptionMenu extends OptionMenu{
 			System.out.println("Nouvelle pizza ajoutée");
 		} catch (SavePizzaException e) {
 			System.out.println("Erreur lors de l'insertion");
+			e.printStackTrace();
+		} catch (DaoException e) {
 			e.printStackTrace();
 		}
 

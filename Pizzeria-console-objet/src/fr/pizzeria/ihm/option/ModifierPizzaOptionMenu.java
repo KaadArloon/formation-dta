@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.option;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
@@ -40,6 +41,8 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 				System.out.println("Pizza modifiée avec succées !");
 			} catch (UpdatePizzaException e) {
 				System.out.println("Erreur lors de la modification !");
+				e.printStackTrace();
+			} catch (DaoException e) {
 				e.printStackTrace();
 			}
 		} else {
