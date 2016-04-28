@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Operateurs-console/src"/>
+	<classpathentry kind="src" path="pizzeria-console-imperative/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Operateurs-console/bin"/>
+</classpath>
