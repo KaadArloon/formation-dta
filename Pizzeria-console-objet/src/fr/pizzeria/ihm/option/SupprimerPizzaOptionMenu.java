@@ -1,14 +1,38 @@
 package fr.pizzeria.ihm.option;
 
+import java.util.Scanner;
+
+import fr.pizzeria.dao.PizzaDao;
+
 public class SupprimerPizzaOptionMenu extends OptionMenu{
 
-	public SupprimerPizzaOptionMenu(String omLibelle) {
-		super(omLibelle);
+	private static final String SUPPRIMER_UNE_PIZZA_LIBELLE_MENU = "Supprimer une pizza";
+	
+	private PizzaDao pizzaDao;
+	private Scanner scanner;
+
+	public SupprimerPizzaOptionMenu(PizzaDao pizzaDao, Scanner sc) {
+		super(SUPPRIMER_UNE_PIZZA_LIBELLE_MENU);
+		this.pizzaDao = pizzaDao;
+		scanner = sc;
 	}
 
 	@Override
 	public boolean execute() {
-		return false;
-		
+		new AfficherPizzaOptionMenu(pizzaDao).execute();
+
+		System.out.println("Veuillez choisir le code de la pizza à supprimer.\n(99 pour abandonner).");
+		String choix = scanner.next();
+
+		if (!choix.equals("99")) {
+			if (pizzaDao.supprimerPizza(choix)) {
+				System.out.println("Pizza supprimée avec succées !");
+			} else {
+				System.out.println("Erreur lors de la suppression !");
+			}
+		} else {
+			System.out.println("Suppression annulée !");
+		}
+		return true;
 	}
 }
