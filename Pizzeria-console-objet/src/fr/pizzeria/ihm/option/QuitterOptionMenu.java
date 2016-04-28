@@ -1,4 +1,4 @@
-package fr.pizzeria.ihm;
+package fr.pizzeria.ihm.option;
 
 public class QuitterOptionMenu extends OptionMenu {
 
@@ -7,7 +7,8 @@ public class QuitterOptionMenu extends OptionMenu {
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
+		return false;
 
 	}
 

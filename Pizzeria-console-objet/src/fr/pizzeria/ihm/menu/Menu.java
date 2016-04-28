@@ -1,6 +1,8 @@
-package fr.pizzeria.ihm;
+package fr.pizzeria.ihm.menu;
 
 import java.util.Scanner;
+
+import fr.pizzeria.ihm.option.OptionMenu;
 
 public class Menu {
 	

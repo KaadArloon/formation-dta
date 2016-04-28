@@ -1,6 +1,4 @@
-package fr.pizzeria.ihm;
-
-import fr.pizzeria.model.Pizza;
+package fr.pizzeria.model;
 
 public class Resultat {
 	public Pizza pizzaTrouvee;

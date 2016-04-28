@@ -2,8 +2,8 @@ package fr.pizzeria.console;
 
 import java.util.Scanner;
 
-import fr.pizzeria.ihm.Resultat;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.Resultat;
 
 public class PizzeriaAdminConsoleApp {
 

@@ -1,8 +1,8 @@
-package fr.pizzeria.ihm;
+package fr.pizzeria.ihm.option;
 
 public abstract class OptionMenu {
 	protected String libelle;
-	public abstract void execute();
+	public abstract boolean execute();
 	
 	public OptionMenu(String omLibelle){
 		this.libelle = omLibelle;
