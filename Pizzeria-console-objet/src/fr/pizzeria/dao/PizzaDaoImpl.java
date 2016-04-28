@@ -1,5 +1,8 @@
 package fr.pizzeria.dao;
 
+import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.exception.SavePizzaException;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImpl implements PizzaDao {
@@ -24,7 +27,7 @@ public class PizzaDaoImpl implements PizzaDao {
 	}
 
 	@Override
-	public boolean nouvellePizza(Pizza nvPizza) {
+	public void nouvellePizza(Pizza nvPizza) throws SavePizzaException {
 		boolean placeTrouvee = false;
 		int i = 0;
 		
@@ -37,13 +40,13 @@ public class PizzaDaoImpl implements PizzaDao {
 		
 		if (placeTrouvee){
 			pizzas[i-1] = nvPizza;
+		} else { 
+			throw new SavePizzaException();
 		}
-		
-		return placeTrouvee;
 	}
 
 	@Override
-	public boolean modifierPizza(String codePizza, Pizza modPizza) {
+	public void modifierPizza(String codePizza, Pizza modPizza) throws UpdatePizzaException {
 		boolean placeTrouvee = false;
 		int i = 0;
 		
@@ -56,13 +59,13 @@ public class PizzaDaoImpl implements PizzaDao {
 		
 		if (placeTrouvee){
 			pizzas[i - 1] = modPizza;
+		} else {
+			throw new UpdatePizzaException();
 		}
-		
-		return placeTrouvee;
 	}
 
 	@Override
-	public boolean supprimerPizza(String codePizza) {
+	public void supprimerPizza(String codePizza) throws DeletePizzaException {
 		boolean placeTrouvee = false;
 		int i = 0;
 
@@ -75,9 +78,9 @@ public class PizzaDaoImpl implements PizzaDao {
 
 		if (placeTrouvee) {
 			pizzas[i - 1] = null;
+		} else {
+			throw new DeletePizzaException();
 		}
-
-		return placeTrouvee;
 	}
 
 }

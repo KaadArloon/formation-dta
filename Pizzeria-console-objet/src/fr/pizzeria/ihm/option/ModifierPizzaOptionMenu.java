@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.option;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu{
@@ -34,10 +35,12 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			Double prix = scanner.nextDouble();
 
 			Pizza modPizza = new Pizza(code, name, prix);
-			if (pizzaDao.modifierPizza(choix, modPizza)) {
+			try {
+				pizzaDao.modifierPizza(choix, modPizza);
 				System.out.println("Pizza modifiée avec succées !");
-			} else {
+			} catch (UpdatePizzaException e) {
 				System.out.println("Erreur lors de la modification !");
+				e.printStackTrace();
 			}
 		} else {
 			System.out.println("Modification annulée !");
