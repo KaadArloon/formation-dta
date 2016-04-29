@@ -6,16 +6,23 @@ public class Pizza {
 	private String code;
 	private String nom;
 	private double prix;
+	private CategoriePizza categorie;
 	
-	public Pizza(String pcode, String pnom, double pprix){
+	public Pizza(String pcode, String pnom, double pprix, CategoriePizza pcategorie){
 		this.code = pcode;
 		this.nom = pnom;
 		this.prix = pprix;
+		this.categorie = pcategorie;
 		Pizza.nbPizzas++;
 	}
 
 	public Pizza() {
 		super();
+	}
+	
+	@Override
+	public String toString() {
+		return this.code + " -> " + this.nom + " (" + this.prix + "€) -- " + this.categorie;
 	}
 
 	public int getId() {
@@ -48,5 +55,13 @@ public class Pizza {
 
 	public void setPrix(double prix) {
 		this.prix = prix;
+	}
+
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
 	}
 }

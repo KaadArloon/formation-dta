@@ -1,8 +1,8 @@
 package fr.pizzeria.ihm.menu;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.ihm.option.AfficherPizzaOptionMenu;
@@ -26,12 +26,12 @@ public class Menu {
 	}
 
 	private void initialiserOptions(Scanner sc, PizzaDao pizzaDao) {
-		listeOptions = new HashMap<Integer, OptionMenu>();
-		listeOptions.put(0, new AfficherPizzaOptionMenu(pizzaDao));
-		listeOptions.put(1, new NouvellePizzaOptionMenu(pizzaDao, sc));
-		listeOptions.put(2, new ModifierPizzaOptionMenu(pizzaDao, sc));
-		listeOptions.put(3, new SupprimerPizzaOptionMenu(pizzaDao, sc));
-		listeOptions.put(4, new QuitterOptionMenu());
+		listeOptions = new TreeMap<Integer, OptionMenu>();
+		listeOptions.put(1, new AfficherPizzaOptionMenu(pizzaDao));
+		listeOptions.put(2, new NouvellePizzaOptionMenu(pizzaDao, sc));
+		listeOptions.put(3, new ModifierPizzaOptionMenu(pizzaDao, sc));
+		listeOptions.put(4, new SupprimerPizzaOptionMenu(pizzaDao, sc));
+		listeOptions.put(99, new QuitterOptionMenu());
 	}
 
 	public void afficher() {

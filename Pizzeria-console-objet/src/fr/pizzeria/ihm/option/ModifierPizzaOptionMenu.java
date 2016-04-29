@@ -5,6 +5,7 @@ import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu{
@@ -13,10 +14,12 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 	
 	private PizzaDao pizzaDao;
 	private Scanner scanner;
+	private CategoriePizza[] categories;
 
 	public ModifierPizzaOptionMenu(PizzaDao pizzaDao, Scanner sc) {
 		super(MODIFIER_UNE_PIZZA_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
+		this.categories = CategoriePizza.values();
 		scanner = sc;
 	}
 
@@ -34,8 +37,12 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			String name = scanner.next();
 			System.out.println("Veuillez saisir le prix");
 			Double prix = scanner.nextDouble();
+			System.out.println("Veuillez choisir la categorie");
+			afficherCategories();
+			int choixCategorie = scanner.nextInt();
+			CategoriePizza categorie = categories[choixCategorie];
 
-			Pizza modPizza = new Pizza(code, name, prix);
+			Pizza modPizza = new Pizza(code, name, prix, categorie);
 			try {
 				pizzaDao.modifierPizza(choix, modPizza);
 				System.out.println("Pizza modifiée avec succées !");
@@ -49,5 +56,11 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			System.out.println("Modification annulée !");
 		}
 		return true;	
+	}
+
+	private void afficherCategories() {
+		System.out.println("0" + CategoriePizza.VIANDE.getValue());
+		System.out.println("1" + CategoriePizza.POISSON.getValue());
+		System.out.println("2" + CategoriePizza.SANS_VIANDE.getValue());
 	}
 }
