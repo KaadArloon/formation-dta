@@ -33,4 +33,20 @@ public class Pizza {
 	public double getPrix() {
 		return prix;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
 }
