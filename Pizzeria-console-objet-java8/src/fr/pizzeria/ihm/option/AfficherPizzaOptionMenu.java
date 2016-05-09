@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm.option;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DaoException;
 
 public class AfficherPizzaOptionMenu extends OptionMenu {
 
@@ -16,7 +17,12 @@ public class AfficherPizzaOptionMenu extends OptionMenu {
 	@Override
 	public boolean execute() {
 		System.out.println("Lister les pizzas Menu");
-		pizzaDao.afficherToutesPizzas().forEach(System.out::println);
+		try {
+			pizzaDao.afficherToutesPizzas().forEach(System.out::println);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return true;
 	}
 }

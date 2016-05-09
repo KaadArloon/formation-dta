@@ -7,7 +7,7 @@ import fr.pizzeria.model.Pizza;
 
 public interface PizzaDao {
 
-	List<Pizza> afficherToutesPizzas();
+	List<Pizza> afficherToutesPizzas()  throws DaoException;
 
 	void nouvellePizza(Pizza nvPizza) throws DaoException;
 

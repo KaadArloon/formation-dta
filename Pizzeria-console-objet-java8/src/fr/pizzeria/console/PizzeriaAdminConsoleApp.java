@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoFichier;
-import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.ihm.menu.Menu;
 
 public class PizzeriaAdminConsoleApp {

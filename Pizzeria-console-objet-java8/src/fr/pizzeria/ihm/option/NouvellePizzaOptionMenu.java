@@ -1,10 +1,10 @@
 package fr.pizzeria.ihm.option;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.DaoException;
-import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -27,26 +27,28 @@ public class NouvellePizzaOptionMenu extends OptionMenu{
 	public boolean execute() {
 		System.out.println("Ajout d’une nouvelle pizza");
 
-		System.out.println("Veuillez saisir le code");
-		String code = scanner.next();
-		System.out.println("Veuillez saisir le nom (sans espace)");
-		String name = scanner.next();
-		System.out.println("Veuillez saisir le prix");
-		Double prix = scanner.nextDouble();
-		System.out.println("Veuillez choisir la categorie");
-		afficherCategories();
-		int choixCategorie = scanner.nextInt();
-		CategoriePizza categorie = categories[choixCategorie];
+		Pizza newPizza = new Pizza();
 		
-		Pizza nvPizza = new Pizza(code, name, prix, categorie);
+		System.out.println("Veuillez saisir le code");
+		newPizza.setCode(scanner.next());
+		System.out.println("Veuillez saisir le nom (sans espace)");
+		newPizza.setNom(scanner.next());
+		System.out.println("Veuillez saisir le prix");
+		
 		try {
-			pizzaDao.nouvellePizza(nvPizza);
+			newPizza.setPrix(scanner.nextDouble());
+			System.out.println("Veuillez choisir la categorie");
+			afficherCategories();
+			int choixCategorie = scanner.nextInt();
+			newPizza.setCategorie(categories[choixCategorie]);
+		
+		
+			pizzaDao.nouvellePizza(newPizza);
 			System.out.println("Nouvelle pizza ajoutée");
-		} catch (SavePizzaException e) {
-			System.out.println("Erreur lors de l'insertion");
-			e.printStackTrace();
+		} catch (InputMismatchException e) {
+			System.err.println("Input " + scanner.next() + " n'est pas un nombre");
 		} catch (DaoException e) {
-			e.printStackTrace();
+			System.err.println("Echec création de pizza");
 		}
 
 		return true;
@@ -55,8 +57,6 @@ public class NouvellePizzaOptionMenu extends OptionMenu{
 	private void afficherCategories() {
 		for (CategoriePizza cp : categories){
 			System.out.println(cp.ordinal() + " -> " + cp.getValue());
-		}
-		
+		}	
 	}
-
 }

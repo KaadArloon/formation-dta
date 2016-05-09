@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.option;
 import java.util.Comparator;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
 public class AfficherPizzaPlusCherOptionMenu extends OptionMenu {
@@ -19,7 +20,12 @@ public class AfficherPizzaPlusCherOptionMenu extends OptionMenu {
 	@Override
 	public boolean execute() {
 		Comparator<Pizza> compPrix = Comparator.comparing(Pizza::getPrix);
-		System.out.println(pizzaDao.afficherToutesPizzas().stream().max(compPrix).get().toString());
+		try {
+			System.out.println(pizzaDao.afficherToutesPizzas().stream().max(compPrix).get().toString());
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return true;
 	}
 }
