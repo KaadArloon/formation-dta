@@ -14,7 +14,7 @@ import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoFichier implements PizzaDao {
-	private static final String REPERTOIRE_DATA = "./main/resources/data";
+	private static final String REPERTOIRE_DATA = "data";
 
 	@Override
 	public List<Pizza> afficherToutesPizzas() throws DaoException {
