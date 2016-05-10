@@ -6,6 +6,8 @@ import java.util.TreeMap;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.ihm.option.AfficherPizzaOptionMenu;
+import fr.pizzeria.ihm.option.AfficherPizzaPlusCherOptionMenu;
+import fr.pizzeria.ihm.option.ListerPizzaParCategorieOptionMenu;
 import fr.pizzeria.ihm.option.ModifierPizzaOptionMenu;
 import fr.pizzeria.ihm.option.NouvellePizzaOptionMenu;
 import fr.pizzeria.ihm.option.OptionMenu;
@@ -31,6 +33,8 @@ public class Menu {
 		listeOptions.put(2, new NouvellePizzaOptionMenu(pizzaDao, sc));
 		listeOptions.put(3, new ModifierPizzaOptionMenu(pizzaDao, sc));
 		listeOptions.put(4, new SupprimerPizzaOptionMenu(pizzaDao, sc));
+		listeOptions.put(5, new ListerPizzaParCategorieOptionMenu(pizzaDao));
+		listeOptions.put(6, new AfficherPizzaPlusCherOptionMenu(pizzaDao));
 		listeOptions.put(99, new QuitterOptionMenu());
 	}
 
@@ -38,9 +42,10 @@ public class Menu {
 		boolean continuer = true;
 		while (continuer) {
 			System.out.println("***** " + TITRE_MENU_LIBELLE + " *****");
-			for (Integer key : listeOptions.keySet()) {
-				System.out.println( key + " -> " + listeOptions.get(key).getLibelle());
-			}
+			
+			listeOptions.entrySet().stream()
+				.forEach(optionMenuEntry -> System.out.println(optionMenuEntry.getKey() + ". " + optionMenuEntry.getValue().getLibelle()));
+			
 			int saisie = scanner.nextInt();
 			continuer = listeOptions.get(saisie).execute();
 		}
