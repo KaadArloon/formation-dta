@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class Pizza {
 	public static int nbPizzas;
 	private int id;
@@ -48,30 +51,23 @@ public class Pizza {
 
 	private Function<? super Field, ? extends String> getValeurDuChamp() {
 		return field -> {
-			
+
 			String resultat = "";
-			try{
-				resultat = field.getAnnotation(ToString.class).uppercase() ? field.get(this).toString().toUpperCase() : field.get(this).toString();
+			try {
+				resultat = field.getAnnotation(ToString.class).uppercase() ? field.get(this).toString().toUpperCase()
+						: field.get(this).toString();
 			} catch (SecurityException | IllegalArgumentException | IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			
+
 			String formatResultat = FORMAT.get(field.getName()) == null ? AUTRE_FORMAT : FORMAT.get(field.getName());
-			
+
 			return String.format(formatResultat, resultat);
 		};
 	}
-	
-	@Override
+
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(prix);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
+		return new HashCodeBuilder(17, 37).append(code).append(nom).append(prix).append(categorie).toHashCode();
 	}
 
 	@Override
@@ -83,19 +79,8 @@ public class Pizza {
 		if (getClass() != obj.getClass())
 			return false;
 		Pizza other = (Pizza) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
-			return false;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
-			return false;
-		if (Double.doubleToLongBits(prix) != Double.doubleToLongBits(other.prix))
-			return false;
-		return true;
+		return new EqualsBuilder().append(code, other.code).append(nom, other.nom)
+				.append(prix, other.prix).isEquals();
 	}
 
 	public int getId() {
