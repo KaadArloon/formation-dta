@@ -18,7 +18,6 @@ public class PizzeriaAdminConsoleApp {
 		Integer daoImplConf = Integer.valueOf(confString);
 
 		PizzaDao dao;
-		System.out.println()
 
 		switch (daoImplConf) {
 		case 0:
