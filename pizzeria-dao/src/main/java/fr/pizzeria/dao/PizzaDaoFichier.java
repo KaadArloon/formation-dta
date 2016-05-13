@@ -14,7 +14,8 @@ import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoFichier implements PizzaDao {
-	private static final String REPERTOIRE_DATA = "../resources/data";
+	
+	private static final String REPERTOIRE_DATA = "data";
 
 	@Override
 	public List<Pizza> afficherToutesPizzas() throws DaoException {
@@ -59,13 +60,12 @@ public class PizzaDaoFichier implements PizzaDao {
 
 	@Override
 	public void modifierPizza(String codePizza, Pizza updatePizza) throws DaoException {
-		// TODO Auto-generated method stub
-		
+		//TODO implements
 	}
 
 	@Override
 	public void supprimerPizza(String codePizza) throws DaoException {
-		// TODO Auto-generated method stub
-		
+		//TODO implements
 	}
+
 }
