@@ -2,6 +2,7 @@ package fr.pizzeria.dao;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -70,7 +71,7 @@ public class PizzaDaoImplTest {
 		Pizza pizzaTrouve = pizzaOpt.get();
 		assertEquals("PEP", pizzaTrouve.getCode());
 		assertEquals("PEP2", pizzaTrouve.getNom());
-		assertTrue(pizzaTrouve.getPrix().equals(15.0));
+		assertTrue(pizzaTrouve.getPrix().compareTo(BigDecimal.valueOf(15.0)) == 0);
 		assertEquals(CategoriePizza.VIANDE, pizzaTrouve.getCategorie());
 	}
 

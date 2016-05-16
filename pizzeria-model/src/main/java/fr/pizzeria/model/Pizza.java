@@ -23,29 +23,27 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Pizza {
 
 	private static int nbPizzas;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID")
+	@Column(name = "ID")
 	private Integer id;
 
 	@ToString
-	@Column(name="Ref")
+	@Column(name = "Ref")
 	private String code;
 	@ToString(uppercase = true)
-	@Column(name="Nom")
+	@Column(name = "Nom")
 	private String nom;
 	@ToString
-	@Column(name="Prix")
+	@Column(name = "Prix")
 	private BigDecimal prix;
 
 	@ToString
 	@Enumerated(EnumType.STRING)
-	@Column(name="Categorie")
+	@Column(name = "Categorie")
 	private CategoriePizza categorie;
-	
-	
-	
+
 	private static final Map<String, String> FORMAT = new HashMap<String, String>();
 	private static final String AUTRE_FORMAT = "(%s)";
 
@@ -103,8 +101,7 @@ public class Pizza {
 		if (getClass() != obj.getClass())
 			return false;
 		Pizza other = (Pizza) obj;
-		return new EqualsBuilder().append(code, other.code).append(nom, other.nom)
-				.append(prix, other.prix).isEquals();
+		return new EqualsBuilder().append(code, other.code).append(nom, other.nom).isEquals();
 	}
 
 	public int getId() {

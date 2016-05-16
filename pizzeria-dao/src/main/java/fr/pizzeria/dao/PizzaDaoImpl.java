@@ -15,14 +15,14 @@ public class PizzaDaoImpl implements PizzaDao {
 	private Map<String, Pizza> pizzas = new HashMap<String, Pizza>();
 	
 	public PizzaDaoImpl() {
-		pizzas.put("PEP", new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		pizzas.put("PEP", new Pizza("PEP", "PÃ©pÃ©roni", 12.50, CategoriePizza.VIANDE));
 		pizzas.put("MAR", new Pizza("MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
 		pizzas.put("REI", new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE));
 		pizzas.put("FRO", new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
 		pizzas.put("CAN", new Pizza("CAN", "La cannibale", 12.50, CategoriePizza.VIANDE));
 		pizzas.put("SAV", new Pizza("SAV", "La savoyarde", 13.00, CategoriePizza.VIANDE));
-		pizzas.put("ORI", new Pizza("ORI", "L’orientale", 13.50, CategoriePizza.VIANDE));
-		pizzas.put("IND", new Pizza("IND", "L’indienne", 14.00, CategoriePizza.VIANDE));
+		pizzas.put("ORI", new Pizza("ORI", "L'orientale", 13.50, CategoriePizza.VIANDE));
+		pizzas.put("IND", new Pizza("IND", "L'indienne", 14.00, CategoriePizza.VIANDE));
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class PizzaDaoImpl implements PizzaDao {
 	@Override
 	public void nouvellePizza(Pizza nvPizza) throws SavePizzaException {
 		if(pizzas.containsKey(nvPizza.getCode())) {
-			throw new SavePizzaException("code pizza déjà présent");
+			throw new SavePizzaException("code pizza dï¿½jï¿½ prï¿½sent");
 		}
 		pizzas.put(nvPizza.getCode(), nvPizza);
 	}
@@ -41,7 +41,7 @@ public class PizzaDaoImpl implements PizzaDao {
 	@Override
 	public void modifierPizza(String codePizza, Pizza modPizza) throws UpdatePizzaException {
 		if(!pizzas.containsKey(codePizza)) {
-			throw new UpdatePizzaException("code pizza non trouvé");
+			throw new UpdatePizzaException("code pizza non trouvï¿½");
 		}
 		pizzas.put(codePizza, modPizza);
 	}
@@ -49,7 +49,7 @@ public class PizzaDaoImpl implements PizzaDao {
 	@Override
 	public void supprimerPizza(String codePizza) throws DeletePizzaException {
 		if(!pizzas.containsKey(codePizza)) {
-			throw new DeletePizzaException("code pizza non trouvé");
+			throw new DeletePizzaException("code pizza non trouvï¿½");
 		}
 		pizzas.remove(codePizza);
 	}
