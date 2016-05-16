@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.option;
 
+import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class NouvellePizzaOptionMenu extends OptionMenu{
 
 	@Override
 	public boolean execute() {
-		System.out.println("Ajout d’une nouvelle pizza");
+		System.out.println("Ajout dï¿½une nouvelle pizza");
 
 		Pizza newPizza = new Pizza();
 		
@@ -36,7 +37,7 @@ public class NouvellePizzaOptionMenu extends OptionMenu{
 		System.out.println("Veuillez saisir le prix");
 		
 		try {
-			newPizza.setPrix(scanner.nextDouble());
+			newPizza.setPrix(BigDecimal.valueOf(scanner.nextDouble()));
 			System.out.println("Veuillez choisir la categorie");
 			afficherCategories();
 			int choixCategorie = scanner.nextInt();
@@ -44,11 +45,11 @@ public class NouvellePizzaOptionMenu extends OptionMenu{
 		
 		
 			pizzaDao.nouvellePizza(newPizza);
-			System.out.println("Nouvelle pizza ajoutée");
+			System.out.println("Nouvelle pizza ajoutï¿½e");
 		} catch (InputMismatchException e) {
 			System.err.println("Input " + scanner.next() + " n'est pas un nombre");
 		} catch (DaoException e) {
-			System.err.println("Echec création de pizza");
+			System.err.println("Echec crï¿½ation de pizza");
 		}
 
 		return true;

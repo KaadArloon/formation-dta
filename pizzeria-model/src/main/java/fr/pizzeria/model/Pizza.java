@@ -1,45 +1,69 @@
 package fr.pizzeria.model;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+@Entity
 public class Pizza {
-	public static int nbPizzas;
-	private int id;
+
+	private static int nbPizzas;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
+	private Integer id;
+
 	@ToString
+	@Column(name="Ref")
 	private String code;
 	@ToString(uppercase = true)
+	@Column(name="Nom")
 	private String nom;
 	@ToString
-	private double prix;
+	@Column(name="Prix")
+	private BigDecimal prix;
+
 	@ToString
+	@Enumerated(EnumType.STRING)
+	@Column(name="Categorie")
 	private CategoriePizza categorie;
-
-	public Pizza(String pcode, String pnom, double pprix, CategoriePizza pcategorie) {
-		this.code = pcode;
-		this.nom = pnom;
-		this.prix = pprix;
-		this.categorie = pcategorie;
-		Pizza.nbPizzas++;
-	}
-
-	public Pizza() {
-		super();
-	}
-
-	private final static Map<String, String> FORMAT = new HashMap<String, String>();
-	private final static String AUTRE_FORMAT = "(%s)";
+	
+	
+	
+	private static final Map<String, String> FORMAT = new HashMap<String, String>();
+	private static final String AUTRE_FORMAT = "(%s)";
 
 	static {
 		FORMAT.put("code", "%s ->");
 		FORMAT.put("nom", "%s ***");
+	}
+
+	public Pizza(String pcode, String pnom, double pprix, CategoriePizza pcategorie) {
+		this.code = pcode;
+		this.nom = pnom;
+		this.prix = BigDecimal.valueOf(pprix);
+		this.categorie = pcategorie;
+		nbPizzas++;
+	}
+
+	public Pizza() {
+		super();
 	}
 
 	@Override
@@ -95,7 +119,7 @@ public class Pizza {
 		return nom;
 	}
 
-	public double getPrix() {
+	public BigDecimal getPrix() {
 		return prix;
 	}
 
@@ -111,7 +135,7 @@ public class Pizza {
 		this.nom = nom;
 	}
 
-	public void setPrix(double prix) {
+	public void setPrix(BigDecimal prix) {
 		this.prix = prix;
 	}
 
@@ -122,4 +146,9 @@ public class Pizza {
 	public void setCategorie(CategoriePizza categorie) {
 		this.categorie = categorie;
 	}
+
+	public static int getNbPizzas() {
+		return nbPizzas;
+	}
+
 }

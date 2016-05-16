@@ -28,7 +28,7 @@ public class Menu {
 	}
 
 	private void initialiserOptions(Scanner sc, PizzaDao pizzaDao) {
-		listeOptions = new TreeMap<Integer, OptionMenu>();
+		listeOptions = new TreeMap<>();
 		listeOptions.put(1, new AfficherPizzaOptionMenu(pizzaDao));
 		listeOptions.put(2, new NouvellePizzaOptionMenu(pizzaDao, sc));
 		listeOptions.put(3, new ModifierPizzaOptionMenu(pizzaDao, sc));

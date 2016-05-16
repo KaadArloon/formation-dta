@@ -25,14 +25,14 @@ public class PizzaDaoImplTest {
 	public void testPizzaDaoImpl() {
 		pDAOI = new PizzaDaoImpl();
 		listePizza = new ArrayList<Pizza>();
-		listePizza.add(new Pizza("PEP", "P�p�roni", 12.50, CategoriePizza.VIANDE));
+		listePizza.add(new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
 		listePizza.add(new Pizza("MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
 		listePizza.add(new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE));
 		listePizza.add(new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
 		listePizza.add(new Pizza("CAN", "La cannibale", 12.50, CategoriePizza.VIANDE));
 		listePizza.add(new Pizza("SAV", "La savoyarde", 13.00, CategoriePizza.VIANDE));
-		listePizza.add(new Pizza("ORI", "L�orientale", 13.50, CategoriePizza.VIANDE));
-		listePizza.add(new Pizza("IND", "L�indienne", 14.00, CategoriePizza.VIANDE));
+		listePizza.add(new Pizza("ORI", "L'orientale", 13.50, CategoriePizza.VIANDE));
+		listePizza.add(new Pizza("IND", "L'indienne", 14.00, CategoriePizza.VIANDE));
 		listePizza.sort(Comparator.comparing(Pizza::getCode));
 	}
 
@@ -70,7 +70,7 @@ public class PizzaDaoImplTest {
 		Pizza pizzaTrouve = pizzaOpt.get();
 		assertEquals("PEP", pizzaTrouve.getCode());
 		assertEquals("PEP2", pizzaTrouve.getNom());
-		assertTrue(pizzaTrouve.getPrix() == 15.0);
+		assertTrue(pizzaTrouve.getPrix().equals(15.0));
 		assertEquals(CategoriePizza.VIANDE, pizzaTrouve.getCategorie());
 	}
 
