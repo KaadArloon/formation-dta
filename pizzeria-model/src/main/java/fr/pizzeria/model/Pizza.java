@@ -19,6 +19,9 @@ import javax.persistence.Id;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import fr.pizzeria.model.annotation.ToString;
+import fr.pizzeria.model.enumerer.CategoriePizza;
+
 @Entity
 public class Pizza {
 
@@ -30,7 +33,7 @@ public class Pizza {
 	private Integer id;
 
 	@ToString
-	@Column(name = "Ref")
+	@Column(name = "Ref", unique = true)
 	private String code;
 	@ToString(uppercase = true)
 	@Column(name = "Nom")
@@ -38,13 +41,16 @@ public class Pizza {
 	@ToString
 	@Column(name = "Prix")
 	private BigDecimal prix;
+	
+	@Column(name = "Image")
+	private String urlImage;
 
 	@ToString
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Categorie")
 	private CategoriePizza categorie;
 
-	private static final Map<String, String> FORMAT = new HashMap<String, String>();
+	private static final Map<String, String> FORMAT = new HashMap<>();
 	private static final String AUTRE_FORMAT = "(%s)";
 
 	static {
@@ -52,11 +58,12 @@ public class Pizza {
 		FORMAT.put("nom", "%s ***");
 	}
 
-	public Pizza(String pcode, String pnom, double pprix, CategoriePizza pcategorie) {
+	public Pizza(String pcode, String pnom, double pprix, CategoriePizza pcategorie, String purlImage) {
 		this.code = pcode;
 		this.nom = pnom;
 		this.prix = BigDecimal.valueOf(pprix);
 		this.categorie = pcategorie;
+		this.urlImage = purlImage;
 		nbPizzas++;
 	}
 
@@ -146,6 +153,14 @@ public class Pizza {
 
 	public static int getNbPizzas() {
 		return nbPizzas;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
 	}
 
 }

@@ -1,13 +1,14 @@
 package fr.pizzeria.model.enumerer;
 
-public enum CategoriePizza {
-	VIANDE ("Viande"),
-	POISSON ("Poisson"),
-	SANS_VIANDE ("Sans viande");
+public enum StatutCommande {
+	EN_COURS ("En cours"),
+	EN_LIVRAISON ("En livraison"),
+	CLOSE ("Close"),
+	NON_TRAITEE ("Non traitée");
 	
 	private String value;
 	
-	private CategoriePizza(String s) {
+	private StatutCommande(String s) {
 		this.value = s;
 	}
 	

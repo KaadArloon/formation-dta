@@ -1,4 +1,4 @@
-package fr.pizzeria.dao;
+package fr.pizzeria.dao.pizza;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import fr.pizzeria.exception.DaoException;
-import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.enumerer.CategoriePizza;
 
-public class PizzaDaoFichier implements PizzaDao {
+public class PizzaDaoFichier implements IPizzaDao {
 	
 	private static final String REPERTOIRE_DATA = "data";
 

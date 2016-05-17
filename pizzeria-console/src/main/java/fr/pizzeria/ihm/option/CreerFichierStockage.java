@@ -1,15 +1,15 @@
 package fr.pizzeria.ihm.option;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.model.Pizza;
 
 public class CreerFichierStockage extends OptionMenu{
 
-	private static final String CREER_FICHIERS_STOCKAGE_LIBELLE_MENU = "Créer et mettre à jour les fichiers de pizza";
+	private static final String CREER_FICHIERS_STOCKAGE_LIBELLE_MENU = "Crï¿½er et mettre ï¿½ jour les fichiers de pizza";
 	
-	private PizzaDao pizzaDao;
+	private IPizzaDao pizzaDao;
 
-	public CreerFichierStockage(PizzaDao pizzaDao) {
+	public CreerFichierStockage(IPizzaDao pizzaDao) {
 		super(CREER_FICHIERS_STOCKAGE_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
 	}

@@ -2,17 +2,17 @@ package fr.pizzeria.ihm.option;
 
 import java.util.Comparator;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
 public class AfficherPizzaPlusCherOptionMenu extends OptionMenu {
 
-	private static final String LISTER_LA_PIZZAS_LA_PLUS_CHERE_LIBELLE_MENU = "Lister la pizza la plus chère";
+	private static final String LISTER_LA_PIZZAS_LA_PLUS_CHERE_LIBELLE_MENU = "Lister la pizza la plus chÃ¨re";
 
-	private PizzaDao pizzaDao;
+	private IPizzaDao pizzaDao;
 
-	public AfficherPizzaPlusCherOptionMenu(PizzaDao pizzaDao) {
+	public AfficherPizzaPlusCherOptionMenu(IPizzaDao pizzaDao) {
 		super(LISTER_LA_PIZZAS_LA_PLUS_CHERE_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
 	}
@@ -23,7 +23,6 @@ public class AfficherPizzaPlusCherOptionMenu extends OptionMenu {
 		try {
 			System.out.println(pizzaDao.afficherToutesPizzas().stream().max(compPrix).get().toString());
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return true;

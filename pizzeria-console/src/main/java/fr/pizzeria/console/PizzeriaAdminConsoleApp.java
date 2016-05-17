@@ -7,9 +7,9 @@ import java.util.logging.Level;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.dao.PizzaDaoBDD;
-import fr.pizzeria.dao.PizzaDaoJpa;
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoBDD;
+import fr.pizzeria.dao.pizza.PizzaDaoJpa;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.ihm.menu.Menu;
 
@@ -24,11 +24,11 @@ public class PizzeriaAdminConsoleApp {
 		String confString = rbProperties.getString("dao.impl");
 		Integer daoImplConf = Integer.valueOf(confString);
 
-		PizzaDao dao;
+		IPizzaDao dao;
 
 		switch (daoImplConf) {
 		case 3:
-			java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
+			java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.WARNING);
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("pizzeria-console");
 			
 			dao = new PizzaDaoJpa(emf);
@@ -54,7 +54,7 @@ public class PizzeriaAdminConsoleApp {
 
 	}
 
-	private static void lancerAppli(PizzaDao dao) {
+	private static void lancerAppli(IPizzaDao dao) {
 		try (Scanner sc = new Scanner(System.in)) {
 			Menu menuApplication = new Menu(sc, dao);
 			menuApplication.afficher();

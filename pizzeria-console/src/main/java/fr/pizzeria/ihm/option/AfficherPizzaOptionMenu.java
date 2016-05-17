@@ -1,15 +1,15 @@
 package fr.pizzeria.ihm.option;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.exception.DaoException;
 
 public class AfficherPizzaOptionMenu extends OptionMenu {
 
 	private static final String LISTER_LES_PIZZAS_LIBELLE_MENU = "Lister les pizzas";
 
-	private PizzaDao pizzaDao;
+	private IPizzaDao pizzaDao;
 
-	public AfficherPizzaOptionMenu(PizzaDao pizzaDao) {
+	public AfficherPizzaOptionMenu(IPizzaDao pizzaDao) {
 		super(LISTER_LES_PIZZAS_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
 	}
@@ -20,7 +20,6 @@ public class AfficherPizzaOptionMenu extends OptionMenu {
 		try {
 			pizzaDao.afficherToutesPizzas().forEach(System.out::println);
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return true;

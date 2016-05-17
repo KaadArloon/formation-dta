@@ -2,21 +2,21 @@ package fr.pizzeria.ihm.option;
 
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.UpdatePizzaException;
-import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.enumerer.CategoriePizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu{
 
-	private static final String MODIFIER_UNE_PIZZA_LIBELLE_MENU = "Mettre à jour une pizza";
+	private static final String MODIFIER_UNE_PIZZA_LIBELLE_MENU = "Mettre Ã  jour une pizza";
 	
-	private PizzaDao pizzaDao;
+	private IPizzaDao pizzaDao;
 	private Scanner scanner;
 	private CategoriePizza[] categories;
 
-	public ModifierPizzaOptionMenu(PizzaDao pizzaDao, Scanner sc) {
+	public ModifierPizzaOptionMenu(IPizzaDao pizzaDao, Scanner sc) {
 		super(MODIFIER_UNE_PIZZA_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
 		this.categories = CategoriePizza.values();
@@ -27,7 +27,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 	public boolean execute() {
 		new AfficherPizzaOptionMenu(pizzaDao).execute();
 
-		System.out.println("Veuillez choisir le code de la pizza à modifier.\n(99 pour abandonner).");
+		System.out.println("Veuillez choisir le code de la pizza Ã  modifier.\n(99 pour abandonner).");
 		String choix = scanner.next();
 
 		if (!choix.equals("99")) {
@@ -42,10 +42,10 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			int choixCategorie = scanner.nextInt();
 			CategoriePizza categorie = categories[choixCategorie];
 
-			Pizza modPizza = new Pizza(code, name, prix, categorie);
+			Pizza modPizza = new Pizza(code, name, prix, categorie, "");
 			try {
 				pizzaDao.modifierPizza(choix, modPizza);
-				System.out.println("Pizza modifiée avec succées !");
+				System.out.println("Pizza modifiï¿½e avec succï¿½es !");
 			} catch (UpdatePizzaException e) {
 				System.out.println("Erreur lors de la modification !");
 				e.printStackTrace();
@@ -53,7 +53,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Modification annulée !");
+			System.out.println("Modification annulï¿½e !");
 		}
 		return true;	
 	}

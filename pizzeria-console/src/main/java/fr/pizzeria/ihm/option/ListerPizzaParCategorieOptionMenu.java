@@ -3,16 +3,16 @@ package fr.pizzeria.ihm.option;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
 public class ListerPizzaParCategorieOptionMenu extends OptionMenu{
-	private static final String LISTER_LES_PIZZAS_PAR_CATEGORIE_LIBELLE_MENU = "Lister les pizzas par catégorie";
+	private static final String LISTER_LES_PIZZAS_PAR_CATEGORIE_LIBELLE_MENU = "Lister les pizzas par catÃ©gorie";
 	
-	private PizzaDao pizzaDao;
+	private IPizzaDao pizzaDao;
 	
-	public ListerPizzaParCategorieOptionMenu(PizzaDao pizzaDao){
+	public ListerPizzaParCategorieOptionMenu(IPizzaDao pizzaDao){
 		super(LISTER_LES_PIZZAS_PAR_CATEGORIE_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
 	}
@@ -29,7 +29,6 @@ public class ListerPizzaParCategorieOptionMenu extends OptionMenu{
 						.forEach(System.out::println);
 				});
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return true;

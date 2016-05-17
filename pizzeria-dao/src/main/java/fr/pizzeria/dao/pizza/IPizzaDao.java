@@ -1,11 +1,11 @@
-package fr.pizzeria.dao;
+package fr.pizzeria.dao.pizza;
 
 import java.util.List;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
-public interface PizzaDao {
+public interface IPizzaDao {
 
 	List<Pizza> afficherToutesPizzas()  throws DaoException;
 

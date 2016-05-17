@@ -4,10 +4,11 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>fr.pizzeria.model.Pizza</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pizzeria"/>
-			<property name="javax.persistence.jdbc.user" value="${USER}"/>
-			<property name="javax.persistence.jdbc.password" value="${PASS}"/>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="${jdbc.url}"/>
+			<property name="javax.persistence.jdbc.user" value="${jdbc.user}"/>
+			<property name="javax.persistence.jdbc.password" value="${jdbc.pass}"/>
+			<property name="javax.persistence.jdbc.driver" value="${jdbc.driver}"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 		</properties>
 	</persistence-unit>
 </persistence>

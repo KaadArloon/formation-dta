@@ -2,7 +2,7 @@ package fr.pizzeria.ihm.option;
 
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 
@@ -10,10 +10,10 @@ public class SupprimerPizzaOptionMenu extends OptionMenu{
 
 	private static final String SUPPRIMER_UNE_PIZZA_LIBELLE_MENU = "Supprimer une pizza";
 	
-	private PizzaDao pizzaDao;
+	private IPizzaDao pizzaDao;
 	private Scanner scanner;
 
-	public SupprimerPizzaOptionMenu(PizzaDao pizzaDao, Scanner sc) {
+	public SupprimerPizzaOptionMenu(IPizzaDao pizzaDao, Scanner sc) {
 		super(SUPPRIMER_UNE_PIZZA_LIBELLE_MENU);
 		this.pizzaDao = pizzaDao;
 		scanner = sc;
@@ -23,22 +23,21 @@ public class SupprimerPizzaOptionMenu extends OptionMenu{
 	public boolean execute() {
 		new AfficherPizzaOptionMenu(pizzaDao).execute();
 
-		System.out.println("Veuillez choisir le code de la pizza à supprimer.\n(99 pour abandonner).");
+		System.out.println("Veuillez choisir le code de la pizza ï¿½ supprimer.\n(99 pour abandonner).");
 		String choix = scanner.next();
 
 		if (!choix.equals("99")) {
 			try {
 				pizzaDao.supprimerPizza(choix);
-				System.out.println("Pizza supprimée avec succées !");
+				System.out.println("Pizza supprimï¿½e avec succï¿½es !");
 			} catch (DeletePizzaException e) {
 				System.out.println("Erreur lors de la suppression !");
 				e.printStackTrace();
 			} catch (DaoException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Suppression annulée !");
+			System.out.println("Suppression annulï¿½e !");
 		}
 		return true;
 	}

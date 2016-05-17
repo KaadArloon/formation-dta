@@ -15,6 +15,10 @@
 			<id>dev</id>
 			<properties>
 				<daoimpl>3</daoimpl>
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url>jdbc:mysql://localhost:3306/pizzeria</jdbc.url>
+				<jdbc.user>root</jdbc.user>
+				<jdbc.pass>Kadow_01</jdbc.pass>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>

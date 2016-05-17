@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.ihm.option.AfficherPizzaOptionMenu;
 import fr.pizzeria.ihm.option.AfficherPizzaPlusCherOptionMenu;
 import fr.pizzeria.ihm.option.ListerPizzaParCategorieOptionMenu;
@@ -21,13 +21,13 @@ public class Menu {
 	public Map<Integer, OptionMenu> listeOptions;
 	public Scanner scanner;
 
-	public Menu(Scanner sc, PizzaDao pizzaDao) {
+	public Menu(Scanner sc, IPizzaDao pizzaDao) {
 		super();
 		initialiserOptions(sc, pizzaDao);
 		scanner = sc;
 	}
 
-	private void initialiserOptions(Scanner sc, PizzaDao pizzaDao) {
+	private void initialiserOptions(Scanner sc, IPizzaDao pizzaDao) {
 		listeOptions = new TreeMap<>();
 		listeOptions.put(1, new AfficherPizzaOptionMenu(pizzaDao));
 		listeOptions.put(2, new NouvellePizzaOptionMenu(pizzaDao, sc));

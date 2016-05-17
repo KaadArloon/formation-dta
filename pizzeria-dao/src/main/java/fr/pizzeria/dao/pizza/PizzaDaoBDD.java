@@ -1,4 +1,4 @@
-package fr.pizzeria.dao;
+package fr.pizzeria.dao.pizza;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -13,10 +13,10 @@ import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
-import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.enumerer.CategoriePizza;
 
-public class PizzaDaoBDD implements PizzaDao {
+public class PizzaDaoBDD implements IPizzaDao {
 
 	private String url;
 	private String user;
