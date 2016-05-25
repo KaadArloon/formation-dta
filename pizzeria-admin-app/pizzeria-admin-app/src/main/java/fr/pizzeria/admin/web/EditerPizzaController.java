@@ -13,7 +13,7 @@ import fr.pizzeria.dao.pizza.PizzaDaoImpl;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
-public class ListerPizzaController extends HttpServlet{
+public class EditerPizzaController extends HttpServlet{
 	
 	private IPizzaDao pizzadao = IPizzaDao.DEFAULT_IMPLEMENTATION;
 	
@@ -27,7 +27,7 @@ public class ListerPizzaController extends HttpServlet{
 		}
 		
 		try {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/views/pizzas/listerPizzas.jsp").forward(req, resp);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/views/pizzas/editerPizza.jsp").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
