@@ -36,7 +36,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			System.out.println("Veuillez saisir le nom (sans espace)");
 			String name = scanner.next();
 			System.out.println("Veuillez saisir le prix");
-			Double prix = scanner.nextDouble();
+			String prix = scanner.next();
 			System.out.println("Veuillez choisir la categorie");
 			afficherCategories();
 			int choixCategorie = scanner.nextInt();

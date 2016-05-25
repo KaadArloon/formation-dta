@@ -27,14 +27,14 @@ public class PizzaDaoImplTest {
 	public void testPizzaDaoImpl() {
 		pDAOI = new PizzaDaoImpl();
 		listePizza = new ArrayList<Pizza>();
-		listePizza.add(new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE, ""));
-		listePizza.add(new Pizza("MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE, ""));
-		listePizza.add(new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE, ""));
-		listePizza.add(new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE, ""));
-		listePizza.add(new Pizza("CAN", "La cannibale", 12.50, CategoriePizza.VIANDE, ""));
-		listePizza.add(new Pizza("SAV", "La savoyarde", 13.00, CategoriePizza.VIANDE, ""));
-		listePizza.add(new Pizza("ORI", "L'orientale", 13.50, CategoriePizza.VIANDE, ""));
-		listePizza.add(new Pizza("IND", "L'indienne", 14.00, CategoriePizza.VIANDE, ""));
+		listePizza.add(new Pizza("PEP", "Pépéroni", "12.50", CategoriePizza.VIANDE, ""));
+		listePizza.add(new Pizza("MAR", "Margherita", "14.00", CategoriePizza.SANS_VIANDE, ""));
+		listePizza.add(new Pizza("REI", "La Reine", "11.50", CategoriePizza.VIANDE, ""));
+		listePizza.add(new Pizza("FRO", "La 4 fromages", "12.00", CategoriePizza.SANS_VIANDE, ""));
+		listePizza.add(new Pizza("CAN", "La cannibale", "12.50", CategoriePizza.VIANDE, ""));
+		listePizza.add(new Pizza("SAV", "La savoyarde", "13.00", CategoriePizza.VIANDE, ""));
+		listePizza.add(new Pizza("ORI", "L'orientale", "13.50", CategoriePizza.VIANDE, ""));
+		listePizza.add(new Pizza("IND", "L'indienne", "14.00", CategoriePizza.VIANDE, ""));
 		listePizza.sort(Comparator.comparing(Pizza::getCode));
 	}
 
@@ -50,7 +50,7 @@ public class PizzaDaoImplTest {
 
 	@Test
 	public void testNouvellePizzaCodeInexistant() throws DaoException {
-		Pizza p = new Pizza("CODE_INEXISTANT", "Service apr�s vente", 5.00, CategoriePizza.POISSON, "");
+		Pizza p = new Pizza("CODE_INEXISTANT", "Service apr�s vente", "5.00", CategoriePizza.POISSON, "");
 		pDAOI.nouvellePizza(p);
 		List<Pizza> lP = pDAOI.afficherToutesPizzas();
 		assertTrue(lP.contains(p));
@@ -58,13 +58,13 @@ public class PizzaDaoImplTest {
 	
 	@Test(expected = SavePizzaException.class)
 	public void testNouvellePizzaCodeExistant() throws DaoException {
-		Pizza p = new Pizza("PEP", "Nouveau nom", 15, CategoriePizza.VIANDE, "");
+		Pizza p = new Pizza("PEP", "Nouveau nom", "15", CategoriePizza.VIANDE, "");
 		pDAOI.nouvellePizza(p);	
 	}
 	
 	@Test
 	public void testUpdatePizzaCodeExistant() throws DaoException {
-		Pizza updatePizza = new Pizza("PEP", "PEP2", 15, CategoriePizza.VIANDE, "");
+		Pizza updatePizza = new Pizza("PEP", "PEP2", "15", CategoriePizza.VIANDE, "");
 		pDAOI.modifierPizza("PEP", updatePizza);
 		List<Pizza> listPizzas = pDAOI.afficherToutesPizzas();
 		Optional<Pizza> pizzaOpt = listPizzas.stream().filter(p -> "PEP".equals(p.getCode())).findFirst();

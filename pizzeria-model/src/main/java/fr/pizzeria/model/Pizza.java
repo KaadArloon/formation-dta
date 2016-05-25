@@ -58,10 +58,11 @@ public class Pizza {
 		FORMAT.put("nom", "%s ***");
 	}
 
-	public Pizza(String pcode, String pnom, double pprix, CategoriePizza pcategorie, String purlImage) {
+	public Pizza(String pcode, String pnom, String pprix, CategoriePizza pcategorie, String purlImage) {
+		this.id = nbPizzas;
 		this.code = pcode;
 		this.nom = pnom;
-		this.prix = BigDecimal.valueOf(pprix);
+		this.prix = new BigDecimal(pprix);
 		this.categorie = pcategorie;
 		this.urlImage = purlImage;
 		nbPizzas++;
