@@ -118,10 +118,17 @@ public class PizzaDaoBDD implements IPizzaDao {
 		}
 		
 	}
-	
-	private void connectionTransaction() throws DeletePizzaException, SQLException{
-		connectionAutoCommit();
-		connection.setAutoCommit(false);
+
+	@Override
+	public void importPizza() throws DaoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pizza trouverPizza(String codePizza) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

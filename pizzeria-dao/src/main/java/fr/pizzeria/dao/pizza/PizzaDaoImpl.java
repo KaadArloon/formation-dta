@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
@@ -52,5 +53,23 @@ public class PizzaDaoImpl implements IPizzaDao {
 			throw new DeletePizzaException("code pizza non trouv�");
 		}
 		pizzas.remove(codePizza);
+	}
+
+	@Override
+	public void importPizza() throws DaoException{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pizza trouverPizza(String codePizza) {
+		List<Pizza> pizzas = afficherToutesPizzas();
+		Pizza retour = new Pizza();
+		for (Pizza p : pizzas){
+			if (p.getCode().equals(codePizza)){
+				retour = p;
+			}
+		}
+		return retour;
 	}
 }

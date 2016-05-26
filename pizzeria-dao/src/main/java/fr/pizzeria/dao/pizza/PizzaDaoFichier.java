@@ -69,4 +69,16 @@ public class PizzaDaoFichier implements IPizzaDao {
 		//TODO implements
 	}
 
+	@Override
+	public void importPizza() throws DaoException{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pizza trouverPizza(String codePizza) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

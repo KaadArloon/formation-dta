@@ -1,0 +1,42 @@
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 100%;
+	height: auto;
+	left: 50%;
+	margin: auto;
+}
+
+.carousel-caption {
+	font-size: 32px;
+}
+
+.jumbotron {
+	background-color: coral;
+	color: white;
+}
+
+.thumbnail>a>img {
+	height: 200px;
+}
+
+.thumbnail>.caption>p {
+	color: cadetblue;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Style du template des tooltips pour les pizzas */
+.tooltip-head {
+	color: #fff;
+	background-color: crimson;
+	padding: 5px 30px 5px 30px;
+	border-radius: 4px 4px 0 0;
+	text-align: center;
+	margin-bottom: -2px;
+}
+
+.tooltip-head h2 {
+	margin: 0;
+	font-size: 20px;
+}

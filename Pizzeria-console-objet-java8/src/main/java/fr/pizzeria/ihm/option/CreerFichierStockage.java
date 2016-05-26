@@ -1,7 +1,6 @@
 package fr.pizzeria.ihm.option;
 
 import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.model.Pizza;
 
 public class CreerFichierStockage extends OptionMenu{
 

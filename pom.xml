@@ -56,26 +56,22 @@
 				<version>5.1.38</version>
 				<scope>runtime</scope>
 			</dependency>
-			<!-- http://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
 				<artifactId>hibernate-jpa-2.1-api</artifactId>
 				<version>1.0.0.Final</version>
 			</dependency>
-			<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>5.1.0.Final</version>
 				<scope>runtime</scope>
 			</dependency>
-			<!-- http://mvnrepository.com/artifact/commons-codec/commons-codec -->
 			<dependency>
 				<groupId>commons-codec</groupId>
 				<artifactId>commons-codec</artifactId>
 				<version>1.10</version>
 			</dependency>
-			<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
@@ -85,6 +81,12 @@
 			<dependency>
 				<groupId>jstl</groupId>
 				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.enterprise</groupId>
+				<artifactId>cdi-api</artifactId>
 				<version>1.2</version>
 				<scope>provided</scope>
 			</dependency>

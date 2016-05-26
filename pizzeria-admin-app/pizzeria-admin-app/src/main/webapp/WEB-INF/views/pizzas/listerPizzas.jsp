@@ -1,59 +1,57 @@
-<%@page import="java.util.List"%>
-<%@page import="fr.pizzeria.dao.pizza.IPizzaDao"%>
-<%@page import="fr.pizzeria.dao.pizza.PizzaDaoImpl"%>
-<%@page import="fr.pizzeria.model.Pizza"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="fr.pizzeria.model.Pizza"%>
+<%@page import="java.util.List"%>
+<%@page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html lang="fr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lister pizzas</title>
-
-<!-- Bootstrap core CSS -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<link href="../../assets/css/ie10-viewport-bug-workaround.css"
-	rel="stylesheet">
-
+<title>Pizzeria</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/feuilleDeStylePizzeria.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file="header.jsp"%>
-	<table
-		class="col-md-12 table-bordered table-striped table-condensed cf">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Code</th>
-				<th>Nom</th>
-				<th>Prix</th>
-				<th>Modifier</th>
-				<th>Supprimer</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:set var="list" value="${listpizzas}" />
-			<c:forEach var="p" items="${ list }">
-			<tr>
-				<td>${p.id}</td>
-				<td>${p.code}</td>
-				<td>${p.nom}</td>
-				<td>${p.categorie}</td>
-				<td><a
-					href="http://localhost:9500/pizzeria-admin-app/pizzas/edit?code=${p.code}"
-					class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a></td>
-				<td><a href="#" class="btn btn-danger"><span
-						class="glyphicon glyphicon-remove"></span></a></td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<%@ include file="header.jsp"%>
+	<div class="container-fluid">
+		<div class="row content">
+			<div class="col-sm-9">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Code</th>
+							<th>Prix</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="pizza" items="${listePizza}"> 
+						<tr>
+							<td>${pizza.nom}</td>
+							<td>${pizza.code}</td>
+							<td>${pizza.prix}</td>
+							<td><a href=<c:url value="/pizzas/edit?code=${pizza.code}"></c:url> class="btn btn-success">Modifier</a></td>
+							<td><a href="#" class="btn btn-danger">Supprimer</a></td>
+						</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer class="container-fluid">
+		<p>Footer Text</p>
+	</footer>
+
 </body>
 </html>

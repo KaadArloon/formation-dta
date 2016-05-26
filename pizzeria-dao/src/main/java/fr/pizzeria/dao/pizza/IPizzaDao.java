@@ -12,4 +12,6 @@ public interface IPizzaDao {
 	void nouvellePizza(Pizza nvPizza) throws DaoException;
 	void modifierPizza(String codePizza, Pizza modPizza) throws DaoException;
 	void supprimerPizza(String codePizza) throws DaoException;
+	void importPizza() throws DaoException;
+	Pizza trouverPizza(String codePizza);
 }
