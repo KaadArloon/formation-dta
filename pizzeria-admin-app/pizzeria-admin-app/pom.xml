@@ -26,10 +26,6 @@
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.pizzeria</groupId>
-			<artifactId>pizzeria-dao</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<scope>provided</scope>
@@ -37,6 +33,10 @@
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.pizzeria</groupId>
+			<artifactId>pizzeria-model</artifactId>
 		</dependency>
 
 	</dependencies>

@@ -3,56 +3,43 @@ package fr.pizzeria.admin.metier;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.pizzeria.dao.pizza.IPizzaDao;
-import fr.pizzeria.exception.DaoException;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import fr.pizzeria.model.Pizza;
 
 public class PizzaService {
 
-	private IPizzaDao pizzadao;
+	@PersistenceContext(unitName = "pizzeria-admin-web")
+	private EntityManager em;
 
 	public List<Pizza> afficherToutesPizzas(){
-		try {
-			return pizzadao.afficherToutesPizzas();
-		} catch (DaoException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
+		return em.createQuery("SELECT * FROM Pizza p", Pizza.class).getResultList();
+	}
+
+	public void nouvellePizza(Pizza nvPizza) {
+		em.persist(nvPizza);
+	}
+
+	public void modifierPizza(String codePizza, Pizza modPizza) {
+		if(trouverPizza(codePizza) != null){
+			em.merge(modPizza);
+		} else {
+			nouvellePizza(modPizza);
 		}
 	}
-	
-	public void nouvellePizza(Pizza nvPizza){
-		try {
-			pizzadao.nouvellePizza(nvPizza);
-		} catch (DaoException e) {
-			e.printStackTrace();
-		}
+
+	public void supprimerPizza(String codePizza) {
+		em.remove(trouverPizza(codePizza));
 	}
 	
-	public void modifierPizza(String codePizza, Pizza modPizza){
-		try {
-			pizzadao.modifierPizza(codePizza, modPizza);
-		} catch (DaoException e) {
-			e.printStackTrace();
-		}
+	@Deprecated
+	public void importPizza() {
 	}
-	
-	public void supprimerPizza(String codePizza){
-		try {
-			pizzadao.supprimerPizza(codePizza);
-		} catch (DaoException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void importPizza(){
-		try {
-			pizzadao.importPizza();
-		} catch (DaoException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public Pizza trouverPizza(String codePizza){
-		return pizzadao.trouverPizza(codePizza);
+
+	public Pizza trouverPizza(String codePizza) {
+		return em.createQuery("SELECT * FROM Pizza p WHERE code=:code", Pizza.class).getSingleResult();
 	}
 }

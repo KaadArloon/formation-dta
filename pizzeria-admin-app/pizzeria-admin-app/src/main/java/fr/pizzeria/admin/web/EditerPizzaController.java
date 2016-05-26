@@ -16,7 +16,8 @@ import fr.pizzeria.model.Pizza;
 @WebServlet("/pizzas/edit")
 public class EditerPizzaController extends HttpServlet {
 
-	@Inject private PizzaService pizzaService;
+	@Inject
+	private PizzaService pizzaService;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
