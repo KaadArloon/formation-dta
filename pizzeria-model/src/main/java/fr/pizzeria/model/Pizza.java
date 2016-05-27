@@ -59,7 +59,6 @@ public class Pizza {
 	}
 
 	public Pizza(String pcode, String pnom, String pprix, CategoriePizza pcategorie, String purlImage) {
-		this.id = nbPizzas;
 		this.code = pcode;
 		this.nom = pnom;
 		this.prix = new BigDecimal(pprix);

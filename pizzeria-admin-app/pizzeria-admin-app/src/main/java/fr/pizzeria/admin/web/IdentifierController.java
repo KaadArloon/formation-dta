@@ -23,6 +23,7 @@ public class IdentifierController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		pizzaService.importPizza();
 		List<Pizza> pizzas = pizzaService.afficherToutesPizzas();
 		req.setAttribute("listePizza", pizzas);
 

@@ -29,11 +29,18 @@
 
 						<!-- Text input-->
 						<div class="form-group">
+							<label class="col-md-2 control-label" for="Id">ID</label>
+							<div class="col-md-9">
+								<input id="id" name="id" type="text"
+									placeholder="Id" class="form-control input-md" value="${pizza.id}" readonly="readonly">
+							</div>
+						</div>
+						
+						<div class="form-group">
 							<label class="col-md-2 control-label" for="Code">Code</label>
 							<div class="col-md-9">
 								<input id="code" name="code" type="text"
 									placeholder="Nouveau Code" class="form-control input-md" value="${pizza.code}" required>
-
 							</div>
 						</div>
 						
@@ -42,7 +49,6 @@
 							<div class="col-md-9">
 								<input id="nom" name="nom" type="text" placeholder="Nouveau Nom"
 									class="form-control input-md" value="${pizza.nom}" required>
-
 							</div>
 						</div>
 						<!-- Text input-->
