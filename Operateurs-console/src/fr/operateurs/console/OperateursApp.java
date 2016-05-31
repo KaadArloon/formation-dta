@@ -19,7 +19,7 @@ public class OperateursApp {
 		System.out.println(nb1 + " - " + nb2 + " = " + res);
 		res = nb1 * nb2;
 		System.out.println(nb1 + " * " + nb2 + " = " + res);
-		if (nb2 != 0){
+		if (nb2 != 0) {
 			res = nb1 / nb2;
 			System.out.println(nb1 + " / " + nb2 + " = " + res);
 			res = nb1 % nb2;
@@ -27,5 +27,8 @@ public class OperateursApp {
 		} else {
 			System.out.println("Division par 0 impossible");
 		}
+		
+		
+
 	}
 }
