@@ -17,9 +17,8 @@ import fr.pizzeria.ihm.option.SupprimerPizzaOptionMenu;
 public class Menu {
 
 	private static final String TITRE_MENU_LIBELLE = "Pizzeria Administration";
-	public String titre;
-	public Map<Integer, OptionMenu> listeOptions;
-	public Scanner scanner;
+	private Map<Integer, OptionMenu> listeOptions;
+	private Scanner scanner;
 
 	public Menu(Scanner sc, IPizzaDao pizzaDao) {
 		super();

@@ -48,7 +48,7 @@ public class PizzaDaoBDD implements IPizzaDao {
 				ResultSet result = st.executeQuery("select * from pizza");) {
 			while (result.next()) {
 				Pizza pizza = new Pizza();
-				pizza.setCode(result.getString("code"));
+				pizza.setCode(result.getString("ref"));
 				pizza.setId(result.getInt("id"));
 				pizza.setNom(result.getString("nom"));
 				pizza.setPrix(BigDecimal.valueOf(result.getDouble("prix")));
