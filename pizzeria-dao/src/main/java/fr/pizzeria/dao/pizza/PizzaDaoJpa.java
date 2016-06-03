@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,6 +16,8 @@ import javax.persistence.EntityTransaction;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
+@Repository
+@Lazy
 public class PizzaDaoJpa implements IPizzaDao {
 
 	EntityManagerFactory entityManagFact;
@@ -82,6 +88,12 @@ public class PizzaDaoJpa implements IPizzaDao {
 	public Pizza trouverPizza(String codePizza) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void ajoutPizzaLot(List<Pizza> listePizzas, int tailleLot) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

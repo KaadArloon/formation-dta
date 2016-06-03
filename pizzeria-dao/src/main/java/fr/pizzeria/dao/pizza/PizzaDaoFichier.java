@@ -10,10 +10,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
+
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.model.enumerer.CategoriePizza;
 
+@Repository
+@Lazy
 public class PizzaDaoFichier implements IPizzaDao {
 	
 	private static final String REPERTOIRE_DATA = "data";
@@ -79,6 +84,12 @@ public class PizzaDaoFichier implements IPizzaDao {
 	public Pizza trouverPizza(String codePizza) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void ajoutPizzaLot(List<Pizza> listePizzas, int tailleLot) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

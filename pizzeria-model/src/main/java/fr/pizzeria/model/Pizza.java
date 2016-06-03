@@ -111,7 +111,7 @@ public class Pizza {
 		return new EqualsBuilder().append(code, other.code).append(nom, other.nom).isEquals();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -127,7 +127,7 @@ public class Pizza {
 		return prix;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

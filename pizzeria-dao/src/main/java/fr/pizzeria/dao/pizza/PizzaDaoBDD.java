@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
+
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
@@ -16,6 +19,8 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.model.enumerer.CategoriePizza;
 
+@Repository
+@Lazy
 public class PizzaDaoBDD implements IPizzaDao {
 
 	private String url;
@@ -129,6 +134,12 @@ public class PizzaDaoBDD implements IPizzaDao {
 	public Pizza trouverPizza(String codePizza) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void ajoutPizzaLot(List<Pizza> listePizzas, int tailleLot) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

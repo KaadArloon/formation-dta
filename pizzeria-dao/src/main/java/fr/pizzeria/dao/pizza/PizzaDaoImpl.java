@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
+
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
@@ -12,6 +15,8 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.model.enumerer.CategoriePizza;
 
+@Repository
+@Lazy
 public class PizzaDaoImpl implements IPizzaDao {
 	private Map<String, Pizza> pizzas = new HashMap<String, Pizza>();
 	
@@ -71,5 +76,11 @@ public class PizzaDaoImpl implements IPizzaDao {
 			}
 		}
 		return retour;
+	}
+
+	@Override
+	public void ajoutPizzaLot(List<Pizza> listePizzas, int tailleLot) {
+		// TODO Auto-generated method stub
+		
 	}
 }

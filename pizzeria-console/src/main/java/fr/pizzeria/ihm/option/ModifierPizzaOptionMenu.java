@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.option;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.pizza.IPizzaDao;
@@ -42,7 +43,11 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			int choixCategorie = scanner.nextInt();
 			CategoriePizza categorie = categories[choixCategorie];
 
-			Pizza modPizza = new Pizza(code, name, prix, categorie, "");
+			Pizza modPizza = pizzaDao.trouverPizza(choix);
+			modPizza.setNom(name);
+			modPizza.setCategorie(categorie);
+			modPizza.setCode(code);
+			modPizza.setPrix(new BigDecimal(prix));
 			try {
 				pizzaDao.modifierPizza(choix, modPizza);
 				System.out.println("Pizza modifi�e avec succ�es !");

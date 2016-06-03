@@ -8,9 +8,14 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
+
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
+@Repository
+@Lazy
 public class PizzaDaoHTTP implements IPizzaDao {
 
 	private Client client = ClientBuilder.newClient();
@@ -48,6 +53,12 @@ public class PizzaDaoHTTP implements IPizzaDao {
 	@Override
 	public Pizza trouverPizza(String codePizza) {
 		return null;
+	}
+
+	@Override
+	public void ajoutPizzaLot(List<Pizza> listePizzas, int tailleLot) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

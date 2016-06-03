@@ -14,4 +14,5 @@ public interface IPizzaDao {
 	void supprimerPizza(String codePizza) throws DaoException;
 	void importPizza() throws DaoException;
 	Pizza trouverPizza(String codePizza);
+	void ajoutPizzaLot(List<Pizza> listePizzas, int tailleLot);
 }

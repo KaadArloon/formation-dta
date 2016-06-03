@@ -102,11 +102,21 @@
 				<version>2.22</version>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>4.1</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
 				<version>4.2.6.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>1.9.0.RELEASE</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
