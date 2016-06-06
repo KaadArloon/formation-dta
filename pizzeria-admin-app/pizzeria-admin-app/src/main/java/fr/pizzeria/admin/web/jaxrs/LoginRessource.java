@@ -1,7 +1,5 @@
 package fr.pizzeria.admin.web.jaxrs;
 
-import java.util.UUID;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;

@@ -2,8 +2,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="fr.pizzeria.model.Pizza"%>
 <%@page import="java.util.List"%>
-<%@page isELIgnored="false" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html lang="fr">
 <head>
@@ -24,7 +24,7 @@
 	<%@ include file="header.jsp"%>
 	<div class="container-fluid ">
 		<div class="row content">
-			<div class="container-fluid " style="padding:50px">
+			<div class="container-fluid " style="padding: 50px">
 				<form action="<%=request.getContextPath()%>/login" method="post">
 					<fieldset>
 						<!-- Form Name -->
@@ -35,16 +35,19 @@
 							<label class="col-md-2 control-label" for="Code">Identifiant</label>
 							<div class="col-md-9">
 								<input id="code" name="identifiant" type="text"
-									placeholder="Votre identifiant" class="form-control input-md" required>
+									placeholder="Votre identifiant" class="form-control input-md"
+									required>
 
 							</div>
 						</div>
-						
+
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="prix">Mot de passe</label>
+							<label class="col-md-2 control-label" for="prix">Mot de
+								passe</label>
 							<div class="col-md-9">
-								<input id="nom" name="motDePasse" type="password" placeholder="Votre mot de passe"
-									class="form-control input-md" required>
+								<input id="nom" name="motDePasse" type="password"
+									placeholder="Votre mot de passe" class="form-control input-md"
+									required>
 
 							</div>
 						</div>
@@ -59,10 +62,10 @@
 				</form>
 			</div>
 		</div>
-
-		<footer class="container-fluid">
-			<p>Footer Text</p>
-		</footer>
+	</div>
+	<footer class="container-fluid">
+		<p>Footer Text</p>
+	</footer>
 
 </body>
 </html>

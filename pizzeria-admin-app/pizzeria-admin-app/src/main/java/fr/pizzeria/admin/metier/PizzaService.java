@@ -6,9 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.model.enumerer.CategoriePizza;

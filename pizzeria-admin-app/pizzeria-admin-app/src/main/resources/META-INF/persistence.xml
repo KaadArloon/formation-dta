@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="pizzeriabdd">
 		<jta-data-source>MySqlDS</jta-data-source>
 		<class>fr.pizzeria.model.Pizza</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-			<property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
-			<property name="javax.persistence.schema-generation.scripts.create-target" value="INSERT INTO `pizza` (`ID`, `Ref`, `Nom`, `Prix`, `Categorie`) VALUES
+			<property name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+			<property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
+			<property name="javax.persistence.schema-generation.scripts.create-target"
+				value="INSERT INTO `pizza` (`ID`, `Ref`, `Nom`, `Prix`, `Categorie`) VALUES
 (1, 'PEP', 'Pépéroni peps', 12.5, 'VIANDE'),
 (2, 'MAR', 'Margherita', 14, 'SANS_VIANDE'),
 (3, 'REI', 'La Reine', 11.5, 'VIANDE'),
@@ -18,7 +22,7 @@
 (9, 'ILE', 'Ilienne', 16, 'POISSON'),
 (10, 'SAU', 'Sauvage', 25, 'VIANDE'),
 (11, 'POL', 'Polonaise', 16, 'SANS_VIANDE'),
-(12, 'TWM', 'Total War Medieval', 50, 'VIANDE');"/>
+(12, 'TWM', 'Total War Medieval', 50, 'VIANDE');" />
 		</properties>
 	</persistence-unit>
 </persistence>

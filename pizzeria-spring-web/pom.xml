@@ -28,6 +28,28 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.pizzeria</groupId>
+			<artifactId>pizzeria-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.pizzeria</groupId>
+			<artifactId>pizzeria-dao</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.192</version>
+        </dependency>
 	</dependencies>
 	<build>
 		<finalName>pizzeria-spring-web</finalName>

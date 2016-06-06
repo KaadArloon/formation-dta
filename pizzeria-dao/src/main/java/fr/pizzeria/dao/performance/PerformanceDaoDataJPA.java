@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.pizzeria.dao.repository.IPerfRepository;
-import fr.pizzeria.dao.repository.IPizzaRepository;
-import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Performance;
-import fr.pizzeria.model.Pizza;
 
 @Transactional
 public class PerformanceDaoDataJPA implements IPerfDao{

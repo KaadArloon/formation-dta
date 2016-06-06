@@ -8,7 +8,7 @@ import fr.pizzeria.model.Pizza;
 public interface IPizzaDao {
 	IPizzaDao DEFAULT_IMPLEMENTATION = new PizzaDaoImpl();
 
-	List<Pizza> afficherToutesPizzas()  throws DaoException;
+	List<Pizza> afficherToutesPizzas() throws DaoException;
 	void nouvellePizza(Pizza nvPizza) throws DaoException;
 	void modifierPizza(String codePizza, Pizza modPizza) throws DaoException;
 	void supprimerPizza(String codePizza) throws DaoException;

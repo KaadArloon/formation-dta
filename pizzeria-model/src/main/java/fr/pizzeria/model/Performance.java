@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import fr.pizzeria.model.annotation.ToString;
-
 @Entity
 public class Performance {
 	@Id
